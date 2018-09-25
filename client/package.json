@@ -1,10 +1,10 @@
 {
-  "name": "react-boilerplate",
-  "version": "3.6.0",
-  "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
+  "name": "reporting_system",
+  "version": "0.1",
+  "description": "reporting system",
   "repository": {
     "type": "git",
-    "url": "git://github.com/react-boilerplate/react-boilerplate.git"
+    "url": "git://github.com/emily0604/reporting_system"
   },
   "engines": {
     "npm": ">=5",
