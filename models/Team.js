@@ -7,4 +7,4 @@ const teamSchema = new Schema({
   description: { type: String },
 });
 
-mongoose.model('teams', teamSchema);
+module.exports = mongoose.model('teams', teamSchema);

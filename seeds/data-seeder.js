@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const faker = require('faker');
 const keys = require('../config/keys');
 
-const Team = mongoose.model('teams');
+const Team = require('../models/Team');
 
-// mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
 
 const database = {
   daily_reports: [],
@@ -35,22 +35,34 @@ const database = {
   ],
 };
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 10; i += 1) {
   database.teams.push({
     name: faker.name.firstName(),
     description: faker.lorem.paragraph(),
   });
 }
 
-Team
-  .insertMany(database.teams)
-  .then(() => {
-    console.log('Seed teams data success');
-    mongoose.disconnect();
+
+Team.find({})
+  .then((docs) => {
+    if (!docs) {
+      Team.insertMany(database.teams)
+        .then(() => {
+          console.log('Seed teams data sucess');
+          mongoose.disconnect();
+        });
+    } else {
+      Team.deleteMany({})
+        .then(() => {
+          Team.insertMany(database.teams)
+            .then(() => {
+              console.log('Seed teams data sucess');
+              mongoose.disconnect();
+            });
+        });
+    }
   })
-  .catch((err) => {
-    console.log('Error while seeding data', err);
-  });
+  .catch(err => console.log('Error while seeding data', err));
 
 // Division.insertMany(database.divisions)
 //   .then(() => {
@@ -68,4 +80,3 @@ Team
 //   .catch((err) => {
 //     console.log('Error while seeding data', err);
 //   });
-
