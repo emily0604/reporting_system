@@ -26,7 +26,7 @@ import 'file-loader?name=[name].[ext]!./.htaccess'; // eslint-disable-line impor
 import configureStore from './configureStore';
 
 // Import CSS reset and Global Styles
-import './global-styles';
+import './global.style';
 
 // Observe loading of Open Sans (to remove open sans, remove the <link> tag in
 // the index.html file and this observer)
