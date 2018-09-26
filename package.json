@@ -1,0 +1,46 @@
+{
+  "name": "reporting_system",
+  "version": "1.0.0",
+  "description": "Reporting System",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emily0604/reporting_system.git"
+  },
+  "keywords": [
+    "Nodejs",
+    "Reactjs",
+    "MongoDB"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emily0604/reporting_system/issues"
+  },
+  "homepage": "https://github.com/emily0604/reporting_system#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.0.1",
+    "express": "^4.16.3",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.2.17",
+    "nodemon": "^1.18.4",
+    "passport": "^0.4.0",
+    "faker": "^4.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "expect": "^23.6.0",
+    "mocha": "^5.2.0",
+    "prettier": "^1.14.3",
+    "supertest": "^3.3.0"
+  }
+}
