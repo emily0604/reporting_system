@@ -7,45 +7,46 @@
  *   script `extract-intl`, and must use CommonJS module syntax
  *   You CANNOT use import/export in this file.
  */
-const addLocaleData = require('react-intl').addLocaleData; //eslint-disable-line
-const enLocaleData = require('react-intl/locale-data/en');
-const deLocaleData = require('react-intl/locale-data/de');
+// const addLocaleData = require('react-intl').addLocaleData; //eslint-disable-line
 
-const enTranslationMessages = require('./translations/en.json');
-const deTranslationMessages = require('./translations/de.json');
+// const enLocaleData = require('react-intl/locale-data/en');
+// const deLocaleData = require('react-intl/locale-data/de');
 
-addLocaleData(enLocaleData);
-addLocaleData(deLocaleData);
+// const enTranslationMessages = require('./translations/en.json');
+// const deTranslationMessages = require('./translations/de.json');
 
-const DEFAULT_LOCALE = 'en';
+// addLocaleData(enLocaleData);
+// addLocaleData(deLocaleData);
 
-// prettier-ignore
-const appLocales = [
-  'en',
-  'de',
-];
+// const DEFAULT_LOCALE = 'en';
 
-const formatTranslationMessages = (locale, messages) => {
-  const defaultFormattedMessages =
-    locale !== DEFAULT_LOCALE
-      ? formatTranslationMessages(DEFAULT_LOCALE, enTranslationMessages)
-      : {};
-  const flattenFormattedMessages = (formattedMessages, key) => {
-    const formattedMessage =
-      !messages[key] && locale !== DEFAULT_LOCALE
-        ? defaultFormattedMessages[key]
-        : messages[key];
-    return Object.assign(formattedMessages, { [key]: formattedMessage });
-  };
-  return Object.keys(messages).reduce(flattenFormattedMessages, {});
-};
+// // prettier-ignore
+// const appLocales = [
+//   'en',
+//   'de',
+// ];
 
-const translationMessages = {
-  en: formatTranslationMessages('en', enTranslationMessages),
-  de: formatTranslationMessages('de', deTranslationMessages),
-};
+// const formatTranslationMessages = (locale, messages) => {
+//   const defaultFormattedMessages =
+//     locale !== DEFAULT_LOCALE
+//       ? formatTranslationMessages(DEFAULT_LOCALE, enTranslationMessages)
+//       : {};
+//   const flattenFormattedMessages = (formattedMessages, key) => {
+//     const formattedMessage =
+//       !messages[key] && locale !== DEFAULT_LOCALE
+//         ? defaultFormattedMessages[key]
+//         : messages[key];
+//     return Object.assign(formattedMessages, { [key]: formattedMessage });
+//   };
+//   return Object.keys(messages).reduce(flattenFormattedMessages, {});
+// };
 
-exports.appLocales = appLocales;
-exports.formatTranslationMessages = formatTranslationMessages;
-exports.translationMessages = translationMessages;
-exports.DEFAULT_LOCALE = DEFAULT_LOCALE;
+// const translationMessages = {
+//   en: formatTranslationMessages('en', enTranslationMessages),
+//   de: formatTranslationMessages('de', deTranslationMessages),
+// };
+
+// exports.appLocales = appLocales;
+// exports.formatTranslationMessages = formatTranslationMessages;
+// exports.translationMessages = translationMessages;
+// exports.DEFAULT_LOCALE = DEFAULT_LOCALE;
