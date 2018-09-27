@@ -3,13 +3,14 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-  googleId: { type: String, required: true },
+  googleId: { type: String },
   email: { type: String, required: true },
   name: { type: String, required: true },
-  address: { type: String, required: true },
+  avatar: { type: String },
+  address: { type: String },
   _division: { type: Schema.Types.ObjectId, ref: 'Division' },
   _team: { type: Schema.Types.ObjectId, ref: 'Team' },
-  phone: { type: String, required: true },
+  phone: { type: String },
   role: {
     type: String,
     enum: ['member', 'team_leader', 'group_leader', 'admin'],
